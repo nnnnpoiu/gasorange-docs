@@ -1,0 +1,21 @@
+{
+  "name": "gasorange-docs",
+  "version": "1.0.0",
+  "description": "GasOrange API 文档站点",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "gasorange",
+    "api",
+    "docs",
+    "vitepress"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
