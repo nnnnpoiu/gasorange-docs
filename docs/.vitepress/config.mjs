@@ -8,7 +8,7 @@ export default defineConfig({
 
   // GitHub Pages 部署配置
   // 注意：请将 '/czy/' 替换为你的仓库名称，例如 '/your-repo-name/'
-  base: '/czy/',
+  base: '/gasorange-docs/',
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
