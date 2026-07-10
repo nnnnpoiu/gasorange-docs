@@ -26,6 +26,7 @@ export default defineConfig({
           text: '快速开始',
           items: [
             { text: '快速接入', link: '/kaishi' },
+            { text: '客户端配置(教程)', link: '/guide/client' }
           ]
         },
         {
