@@ -20,7 +20,7 @@ GasOrange 采用按量计费模式，根据实际使用的 Token 数量计费。
 | `deepseek-v4-pro` | 请咨询平台 | 请咨询平台 |
 | `claude-opus-4-8` | 请咨询平台 | 请咨询平台 |
 
-> 具体价格请登录平台查看 [Pricing 页面](https://www.gasorange.com/pricing) 或联系客服。
+> 具体价格请登录平台查看 [Pricing 页面](https://www.gasorange.com/pricing) 或 [联系客服](/guide/contact)。
 
 ## 图片模型计费
 
@@ -28,7 +28,7 @@ GasOrange 采用按量计费模式，根据实际使用的 Token 数量计费。
 |------|------|-------------|
 | `gpt-image-2` | 请咨询平台 | 请咨询平台 |
 
-> 具体价格请登录平台查看 [Pricing 页面](https://www.gasorange.com/pricing) 或联系客服。
+> 具体价格请登录平台查看 [Pricing 页面](https://www.gasorange.com/pricing) 或 [联系客服](/guide/contact)。
 
 ## 视频模型计费
 
@@ -42,7 +42,7 @@ GasOrange 采用按量计费模式，根据实际使用的 Token 数量计费。
 | `dreamina-seedance-2-0-fast-260128` | 480p/720p | 按实际消耗 Token 计费 |
 | `dreamina-seedance-2-0-mini-260615` | 480p/720p | 按实际消耗 Token 计费 |
 
-> 具体价格请登录平台查看 [Pricing 页面](https://www.gasorange.com/pricing) 或联系客服。
+> 具体价格请登录平台查看 [Pricing 页面](https://www.gasorange.com/pricing) 或 [联系客服](/guide/contact)。
 
 > 视频生成完成后，可通过查询接口获取 `metadata.total_tokens` 查看本次消耗。
 

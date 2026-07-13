@@ -18,6 +18,7 @@ export default defineConfig({
       { text: '文档首页', link: '/' },
       { text: '快速开始', link: '/kaishi' },
       { text: 'API 文档', link: '/api/text' },
+      { text: '联系我们', link: '/guide/contact' }
     ],
 
     sidebar: {
@@ -41,6 +42,7 @@ export default defineConfig({
           text: '其他',
           items: [
             { text: '计费说明', link: '/guide/billing' },
+            { text: '联系我们', link: '/guide/contact' }
           ]
         }
       ]
