@@ -1,3 +1,8 @@
+---
+pageClass: legal-doc-page
+outline: [2, 3]
+---
+
 # GasOrange 数据与隐私说明
 
 > 版本号：V1.1
