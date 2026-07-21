@@ -44,6 +44,13 @@ export default defineConfig({
             { text: '计费说明', link: '/guide/billing' },
             { text: '联系我们', link: '/guide/contact' }
           ]
+        },
+        {
+          text: '服务条款',
+          items: [
+            { text: '服务协议', link: '/services/terms' },
+            { text: '隐私政策', link: '/services/privacy' }
+          ]
         }
       ]
     },
