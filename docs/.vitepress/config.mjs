@@ -15,6 +15,8 @@ export default defineConfig({
     logo: '/logo.svg',
 
     nav: [
+      { text: 'GasOrange 首页', link: 'https://www.gasorange.com' },
+      { text: '控制台', link: 'https://www.gasorange.com/dashboard/overview' },
       { text: '文档首页', link: '/' },
       { text: '快速开始', link: '/kaishi' },
       { text: 'API 文档', link: '/api/text' },
@@ -27,7 +29,8 @@ export default defineConfig({
           text: '快速开始',
           items: [
             { text: '快速接入', link: '/kaishi' },
-            { text: '客户端配置(教程)', link: '/guide/client' }
+            { text: '客户端配置(教程)', link: '/guide/client' },
+            { text: 'Auto 分组使用指南', link: '/guide/auto-group' }
           ]
         },
         {
