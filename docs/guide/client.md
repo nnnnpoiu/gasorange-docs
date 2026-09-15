@@ -1,6 +1,6 @@
 # GasOrange 客户端与第三方调用指南
 
-本教程将引导您在 GasOrange 大模型中转平台上，配置并使用各种主流 CLI 客户端（如 **Claude Code**、**OpenAI Codex CLI**、**Gemini CLI**）以及第三方客户端软件（如 **Cherry Studio**）。
+本教程将引导您在 GasOrange 大模型中转平台上，配置并使用各种主流 CLI 客户端（如 **Claude Code**、**OpenAI Codex CLI**、**Gemini CLI**）以及第三方客户端软件（如 **CC Switch**）。
 
 ---
 
@@ -8,7 +8,8 @@
 - [Claude Code 使用指南](#claude-code-使用指南)
 - [OpenAI Codex CLI 使用指南](#openai-codex-cli-使用指南)
 - [Gemini CLI 使用指南](#gemini-cli-使用指南)
-- [第三方工具配置（以 Cherry Studio 为例）](#第三方工具配置以-cherry-studio-为例)
+- [第三方工具配置（以 CC Switch 为例）](#第三方工具配置以-cc-switch-为例)
+- [Hermes 接入 Claude 返回 403](#hermes-claude-403)
 
 ---
 
@@ -420,31 +421,136 @@ gemini -m gemini-2.5-flash
 
 ---
 
-## 第三方工具配置（以 Cherry Studio 为例）
+## 第三方工具配置（以 CC Switch 为例）
 
 ### 声明
+
 * GasOrange 官方仅对 Claude Code、OpenAI Codex CLI 以及 Gemini CLI 官方客户端提供售后支持。第三方工具的配置教程仅供参考。
-* 管理 API 密钥：[https://www.gasorange.com/console/token](https://www.gasorange.com/console/token)
-* 查询可用模型：[https://www.gasorange.com/pricing](https://www.gasorange.com/pricing)
+* CC Switch 用于管理和切换客户端的供应商配置；请先安装需要使用的 CLI 客户端。
+* 下载：[CC Switch Releases](https://github.com/farion1231/cc-switch/releases)
+* 管理 API 密钥：[GasOrange 令牌管理](https://www.gasorange.com/console/token)
+* 查询可用模型：[GasOrange 模型与价格](https://www.gasorange.com/pricing)
 
-### 1. 配置 Anthropic / Claude 模型
-1. 登录 GasOrange 控制台生成您的 API Key。
-2. 打开 Cherry Studio，进入 **设置** ➔ **模型提供商 (Model Provider)**。
-3. 点击 **添加**，选择 Provider 类型为 **Anthropic**。
-4. 将 API Key 填入输入框，并将 **API Host (或 Base URL)** 修改为：
-   `https://www.gasorange.com`
-5. 手动添加您想要调用的模型（如 `claude-opus-4-6`），点击保存即可开始使用。
+### 1. 添加 GasOrange 供应商
 
-### 2. 配置 OpenAI 兼容模型
-1. 在 Cherry Studio 的 **模型提供商 (Model Provider)** 页面中点击 **添加**。
-2. 选择 Provider 类型为 **OpenAI**。
-3. 将 API Key 填入输入框，并将 **API Host / Base URL** 修改为：
-   `https://www.gasorange.com/v1`
-4. 手动输入或加载模型列表（如 `gpt-5.4`），保存后即可开始使用。
+打开 CC Switch，选择需要配置的应用（Claude Code、Codex 或 Gemini），点击右上角 **+**，在应用专属供应商中选择 **自定义**，名称填写 `GasOrange`。按下面对应应用的格式填写配置，将 `YOUR_GASORANGE_API_KEY` 替换为自己的密钥，模型名称以平台当前可用列表为准。
 
-### 3. 配置 Gemini 模型
-1. 在 Cherry Studio 的 **模型提供商 (Model Provider)** 页面中点击 **添加**。
-2. 选择 Provider 类型为 **Gemini**。
-3. 将 API Key 填入输入框，并将 **API Host / Base URL** 修改为：
-   `https://www.gasorange.com/v1beta`
-4. 手动输入您想要调用的模型名称（如 `gemini-3.1-pro-preview`），保存即可。
+### 2. Claude Code 配置
+
+* **官网链接**：`https://www.gasorange.com`
+* **API 请求地址**：`https://www.gasorange.com`
+
+使用 Anthropic Messages 格式，配置JSON 示例：
+
+```json
+{
+  "env": {
+    "ANTHROPIC_API_KEY": "YOUR_GASORANGE_API_KEY",
+    "ANTHROPIC_BASE_URL": "https://www.gasorange.com"
+  }
+}
+```
+
+### 3. Codex 配置
+
+* **官网链接**：`https://www.gasorange.com`
+* **API 请求地址**：`https://www.gasorange.com/v1`
+
+在供应商编辑界面的认证配置（`auth.json`）中填写：
+
+```json
+{
+  "OPENAI_API_KEY": "YOUR_GASORANGE_API_KEY"
+}
+```
+
+在模型与端点配置（`config.toml`）中填写，将模型占位符替换为可用的 Codex 模型：
+
+```toml
+model_provider = "gasorange"
+model = "替换为可用的 Codex 模型名称"
+
+[model_providers.gasorange]
+name = "GasOrange"
+base_url = "https://www.gasorange.com/v1"
+wire_api = "responses"
+requires_openai_auth = true
+```
+
+### 4. Gemini CLI 配置
+
+* **官网链接**：`https://www.gasorange.com`
+* **API 请求地址**：`https://www.gasorange.com`
+
+环境变量 (.env) 示例：
+
+```json
+"GEMINI_API_KEY": "YOUR_GASORANGE_API_KEY",
+"GOOGLE_GEMINI_BASE_URL": "https://www.gasorange.com"
+```
+
+配置文件 (config.json)示例：
+
+```json
+{
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  },
+  "mcpServers": {}
+}
+```
+
+
+
+### 5. 启用与验证
+
+保存后，在对应应用的供应商卡片上点击 **启用**。重新打开终端或重启对应客户端，运行 `claude`、`codex` 或 `gemini`，发送一条消息验证配置。
+
+配置失败时，检查密钥、模型权限及端点地址，并确认当前启用的是对应应用下的 GasOrange 供应商。
+
+参考：[CC Switch 添加供应商文档](https://github.com/farion1231/cc-switch/blob/main/docs/user-manual/zh/2-providers/2.1-add.md)、[切换供应商文档](https://github.com/farion1231/cc-switch/blob/main/docs/user-manual/zh/2-providers/2.2-switch.md)。界面名称以安装版本为准。
+
+---
+
+## Hermes 接入 Claude 返回 HTTP 403:Your request was blocked{#hermes-claude-403}
+
+### 问题现象
+
+客户使用 Hermes Agent 通过 GasOrange 接入 Claude，发送消息后请求失败，界面提示：
+
+```text
+HTTP 403: Your request was blocked.
+```
+
+### 解决方案
+
+在 Hermes 配置文件中为 GasOrange 提供商新增 `extra_headers`，设置 `User-Agent: Mozilla/5.0`。
+
+1. 打开 Windows 配置文件（将“用户名”替换为当前 Windows 用户名）：
+
+   ```text
+   C:\Users\用户名\AppData\Local\hermes\config.yaml
+   ```
+
+   也可在资源管理器地址栏输入 `%LOCALAPPDATA%\hermes\config.yaml` 定位文件。
+
+2. 找到 `providers` 下的 `gasorange` 配置，新增以下请求头。`extra_headers` 与该提供商的 `key_env` 同级，`User-Agent` 再缩进一层：
+
+   ```yaml
+   providers:
+     gasorange:
+       # 保留此处已有的 base_url、model、models 等配置
+       key_env: HERMES_CUSTOM_GASORANGE_API_KEY
+       extra_headers:
+         User-Agent: Mozilla/5.0
+   ```
+
+   只需在现有配置中补充 `extra_headers`；不要用此片段覆盖整个配置文件。若已有 `extra_headers`，在其下补充或更新 `User-Agent`，保留其他请求头。YAML 缩进使用空格，不要使用 Tab。
+
+   ![在 providers.gasorange 下添加 extra_headers 和 User-Agent](./hermes-extra-headers.png)
+
+3. 保存配置后，重启 Hermes网关，再发送一条消息，确认是否恢复正常响应。
+
+若仍返回 403，请确认修改的是当前使用的配置文件、提供商及缩进层级，并携带错误信息联系支持进一步排查。
