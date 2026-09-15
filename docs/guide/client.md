@@ -250,8 +250,8 @@ codex --version
 ### 3. 配置 GasOrange
 请登录 GasOrange 获取 API 凭证，并配置本地文件。
 
-* **控制台入口**：[https://www.gasorange.com/console](https://www.gasorange.com/console)
-* **API 密钥管理**：[https://www.gasorange.com/console/token](https://www.gasorange.com/console/token)
+* **控制台入口**：[https://www.gasorange.com/dashboard/overview](https://www.gasorange.com/dashboard/overview)
+* **API 密钥管理**：[https://www.gasorange.com/keys](https://www.gasorange.com/keys)
 * **OpenAI 兼容 Base URL / Endpoint**：`https://www.gasorange.com/v1`
 * **支持的模型与价格**：[https://www.gasorange.com/pricing](https://www.gasorange.com/pricing)
 
