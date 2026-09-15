@@ -69,7 +69,7 @@ claude doctor
 请登录 GasOrange 控制台获取 API Key 并配置。
 
 * **控制台入口**：[https://www.gasorange.com/console](https://www.gasorange.com/console)
-* **API 密钥管理**：[https://www.gasorange.com/console/token](https://www.gasorange.com/console/token)
+* **API 密钥管理**：[https://www.gasorange.com/keys](https://www.gasorange.com/keys)
 * **Claude API Host 地址**：`https://www.gasorange.com`
 * **支持的模型与价格**：[https://www.gasorange.com/pricing](https://www.gasorange.com/pricing)
 
@@ -79,7 +79,7 @@ claude doctor
 3. 重新打开终端，运行 `claude` 即可启动。
 
 如需按用途分组或精细管理 Key：
-1. 访问 [GasOrange 令牌管理](https://www.gasorange.com/console/token)
+1. 访问 [GasOrange 令牌管理](https://www.gasorange.com/keys)
 2. 点击 **添加令牌**
 3. 选择您需要的 **令牌分组**，并按需勾选对应的 Providers 与 Models。
 
@@ -379,7 +379,7 @@ npx https://github.com/google-gemini/gemini-cli
 请登录 GasOrange 获取 API Key 进行环境配置。
 
 * **控制台入口**：[https://www.gasorange.com/console](https://www.gasorange.com/console)
-* **API 密钥管理**：[https://www.gasorange.com/console/token](https://www.gasorange.com/console/token)
+* **API 密钥管理**：[https://www.gasorange.com/keys](https://www.gasorange.com/keys)
 * **Gemini 兼容 Base URL / Endpoint**：`https://www.gasorange.com/v1beta` 或 `https://www.gasorange.com/v1/chat/completions`
 
 **快捷配置步骤：**
@@ -428,7 +428,7 @@ gemini -m gemini-2.5-flash
 * GasOrange 官方仅对 Claude Code、OpenAI Codex CLI 以及 Gemini CLI 官方客户端提供售后支持。第三方工具的配置教程仅供参考。
 * CC Switch 用于管理和切换客户端的供应商配置；请先安装需要使用的 CLI 客户端。
 * 下载：[CC Switch Releases](https://github.com/farion1231/cc-switch/releases)
-* 管理 API 密钥：[GasOrange 令牌管理](https://www.gasorange.com/console/token)
+* 管理 API 密钥：[GasOrange 令牌管理](https://www.gasorange.com/keys)
 * 查询可用模型：[GasOrange 模型与价格](https://www.gasorange.com/pricing)
 
 ### 1. 添加 GasOrange 供应商
