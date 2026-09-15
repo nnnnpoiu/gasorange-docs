@@ -68,7 +68,7 @@ claude doctor
 ### 4. 配置 GasOrange 平台
 请登录 GasOrange 控制台获取 API Key 并配置。
 
-* **控制台入口**：[https://www.gasorange.com/console](https://www.gasorange.com/console)
+* **控制台入口**：[https://www.gasorange.com/dashboard/overview](https://www.gasorange.com/dashboard/overview)
 * **API 密钥管理**：[https://www.gasorange.com/keys](https://www.gasorange.com/keys)
 * **Claude API Host 地址**：`https://www.gasorange.com`
 * **支持的模型与价格**：[https://www.gasorange.com/pricing](https://www.gasorange.com/pricing)
@@ -378,7 +378,7 @@ npx https://github.com/google-gemini/gemini-cli
 ### 3. 配置 GasOrange
 请登录 GasOrange 获取 API Key 进行环境配置。
 
-* **控制台入口**：[https://www.gasorange.com/console](https://www.gasorange.com/console)
+* **控制台入口**：[https://www.gasorange.com/dashboard/overview](https://www.gasorange.com/dashboard/overview)
 * **API 密钥管理**：[https://www.gasorange.com/keys](https://www.gasorange.com/keys)
 * **Gemini 兼容 Base URL / Endpoint**：`https://www.gasorange.com/v1beta` 或 `https://www.gasorange.com/v1/chat/completions`
 
